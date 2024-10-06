@@ -65,5 +65,32 @@ public class TreeSetMain {
             System.out.printf("lower(%s)=%s%n", c.getName(), fullSet.lower(c));
         }
         System.out.println("--------------------------");
+
+        var descendingSet = fullSet.descendingSet();
+        descendingSet.forEach(System.out::println);
+        System.out.println("--------------------------");
+        Contact lastContact = descendingSet.pollLast();
+        System.out.println("Removed " + lastContact);
+        descendingSet.forEach(System.out::println);
+        System.out.println("--------------------------");
+        fullSet.forEach(System.out::println);
+        System.out.println("--------------------------");
+
+        Contact marion = new Contact("Maid Marion");
+        var headSet = fullSet.headSet(marion, true);
+        // exclusive without overloaded version
+        headSet.forEach(System.out::println);
+        System.out.println("--------------------------");
+        var tailSet = fullSet.tailSet(marion, false);
+        // inclusive without overloaded version with false
+        tailSet.forEach(System.out::println);
+        System.out.println("--------------------------");
+
+        Contact linus = new Contact("Linus Van Pelt");
+        var subset =
+          fullSet.subSet(linus, false, marion, true);
+        subset.forEach(System.out::println);
+        System.out.println("--------------------------");
+
     }
 }
