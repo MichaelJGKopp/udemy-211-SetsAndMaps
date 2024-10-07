@@ -113,7 +113,7 @@ public class MapMain {
     contacts.forEach((k, v) -> System.out.println("key=" + k + ", value=" + v));
 
     System.out.println("---------------------------------------------");
-    success = contacts.remove("Daisy Duck", daisy);
+    success = contacts.remove("Daisy Duck", daisy); // updatedDaisy is successful
     if (success) {
       System.out.println("Successfully removed element");
     } else {
