@@ -98,5 +98,18 @@ public class MapMain {
     Contact replacedContact = contacts.replace("Daisy Duck", daisy);
     System.out.println("replacedContact=" + replacedContact);
     contacts.forEach((k, v) -> System.out.println("key=" + k + ", value=" + v));
+
+    System.out.println("--------------------------------------");
+    Contact updatedDaisy = replacedContact.mergeContactData(daisy);
+    System.out.println("updatedDaisy=" + updatedDaisy);
+    boolean success = contacts.replace("Daisy Duck", daisy, updatedDaisy); // replacedDaisy
+    // contacts are equal when names of contacts are equal
+    if (success) {
+      System.out.println("Successfully replaced element");
+    } else {
+      System.out.printf(
+        "Did not match on both key: %s and value: %s %n%n", "Daisy Duck", replacedContact);
+    }
+    contacts.forEach((k, v) -> System.out.println("key=" + k + ", value=" + v));
   }
 }
