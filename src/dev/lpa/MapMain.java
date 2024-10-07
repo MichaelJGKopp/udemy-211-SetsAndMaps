@@ -111,5 +111,14 @@ public class MapMain {
         "Did not match on both key: %s and value: %s %n%n", "Daisy Duck", replacedContact);
     }
     contacts.forEach((k, v) -> System.out.println("key=" + k + ", value=" + v));
+
+    System.out.println("---------------------------------------------");
+    success = contacts.remove("Daisy Duck", daisy);
+    if (success) {
+      System.out.println("Successfully removed element");
+    } else {
+      System.out.printf("Did not match on both keys: %s and value: %s %n", "Daisy Duck", daisy);
+    }
+    contacts.forEach((k, v) -> System.out.println("key=" + k + ", value=" + v));
   }
 }
